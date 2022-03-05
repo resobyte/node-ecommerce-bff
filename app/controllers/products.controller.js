@@ -19,7 +19,7 @@ exports.getProducts  = async (req, res) => {
   };
 
   exports.getProductDetail  = async (req, res) => {
-    axios.get(requestURLDetails + req.id + ".json", options).then(response => {
+    axios.get(requestURLDetails + req.params.id + ".json", options).then(response => {
         console.log(response);
       res.status(200).send(response.data.products);
      }).catch(err => {
