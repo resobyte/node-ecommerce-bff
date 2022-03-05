@@ -10,5 +10,5 @@ module.exports = function(app) {
   });
 
   app.get("/v1/api/products", controller.getProducts);
-  app.get("/v1/api/products/detail/:id", controller.getProductDetail);
+  app.get("/v1/api/product/:id", controller.getProductDetail);
 };
