@@ -10,4 +10,5 @@ module.exports = function(app) {
   });
 
   app.get("/v1/api/products", controller.getProducts);
+  app.get("/v1/api/products/detail", controller.getProductDetail);
 };

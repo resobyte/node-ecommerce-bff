@@ -1,6 +1,8 @@
 const axios = require("axios");
 
 const requestURL = 'https://teknasyon.myshopify.com/admin/api/2022-01/products.json';
+const requestURLDetails = 'https://teknasyon.myshopify.com/admin/api/2022-01/products/';
+
 
   const options = {
       headers: {
@@ -10,6 +12,15 @@ const requestURL = 'https://teknasyon.myshopify.com/admin/api/2022-01/products.j
 
 exports.getProducts  = async (req, res) => {
     axios.get(requestURL, options).then(response => {
+      res.status(200).send(response.data.products);
+     }).catch(err => {
+         console.log(err);
+     });
+  };
+
+  exports.getProductDetail  = async (req, res) => {
+    axios.get(requestURLDetails + req.id + ".json", options).then(response => {
+        console.log(response);
       res.status(200).send(response.data.products);
      }).catch(err => {
          console.log(err);
